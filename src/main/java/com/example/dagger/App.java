@@ -3,9 +3,17 @@ package com.example.dagger;
 public class App {
 
   public static void main(String[] args) {
-    final AppComponent component = AppComponent.create();
-    final OrganizationService organizationService = component.provideOrganizationService();
+    final OrganizationRepositoryComponent organizationRepositoryComponent =
+        DaggerOrganizationRepositoryComponent.create();
 
+    final OrganizationServiceModule organizationServiceModule = new OrganizationServiceModule();
+    final OrganizationServiceComponent organizationServiceComponent =
+        DaggerOrganizationServiceComponent.builder()
+            .organizationServiceModule(organizationServiceModule)
+            .organizationRepositoryComponent(organizationRepositoryComponent)
+            .build();
+
+    final OrganizationService organizationService = organizationServiceComponent.provideOrganizationService();
     final String organization = organizationService.getOrganization();
     System.out.println(organization);
   }
