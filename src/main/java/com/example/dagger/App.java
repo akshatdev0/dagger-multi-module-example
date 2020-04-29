@@ -8,10 +8,7 @@ public class App {
 
     final OrganizationServiceModule organizationServiceModule = new OrganizationServiceModule();
     final OrganizationServiceComponent organizationServiceComponent =
-        DaggerOrganizationServiceComponent.builder()
-            .organizationServiceModule(organizationServiceModule)
-            .organizationRepositoryComponent(organizationRepositoryComponent)
-            .build();
+        organizationRepositoryComponent.provideOrganizationServiceComponent(organizationServiceModule);
 
     final OrganizationService organizationService = organizationServiceComponent.provideOrganizationService();
     final String organization = organizationService.getOrganization();

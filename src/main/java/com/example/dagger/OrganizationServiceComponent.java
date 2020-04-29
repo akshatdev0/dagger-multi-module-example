@@ -1,8 +1,8 @@
 package com.example.dagger;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
-@Component(modules = OrganizationServiceModule.class, dependencies = OrganizationRepositoryComponent.class)
+@Subcomponent(modules = OrganizationServiceModule.class)
 public abstract class OrganizationServiceComponent {
 
   public abstract OrganizationService provideOrganizationService();
