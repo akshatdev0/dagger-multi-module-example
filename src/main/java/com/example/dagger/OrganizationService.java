@@ -8,7 +8,7 @@ public class OrganizationService {
         this.repository = repository;
     }
 
-    private void getOrganization() {
-        System.out.println(repository.getOrganization());
+    public String getOrganization() {
+        return repository.getOrganization();
     }
 }
