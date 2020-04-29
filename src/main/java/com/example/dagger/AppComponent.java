@@ -2,11 +2,7 @@ package com.example.dagger;
 
 import dagger.Component;
 
-@Component(modules = {
-//    OrganizationDynamoDbRepositoryModule.class,
-    OrganizationLdapRepositoryModule.class,
-    OrganizationServiceModule.class
-})
+@Component(modules = OrganizationServiceModule.class)
 public abstract class AppComponent {
 
   public abstract OrganizationService provideOrganizationService();

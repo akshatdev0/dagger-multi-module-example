@@ -3,7 +3,10 @@ package com.example.dagger;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module(includes = {
+    OrganizationDynamoDbRepositoryModule.class,
+//    OrganizationLdapRepositoryModule.class,
+})
 public class OrganizationServiceModule {
 
     @Provides
