@@ -3,7 +3,7 @@ package com.example.dagger;
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Component
+@Component(modules = ODataProcessorModule.class)
 public abstract class ODataProcessorComponent {
 
   abstract ODataProcessor provideODataProcessor();
@@ -12,7 +12,7 @@ public abstract class ODataProcessorComponent {
   interface Builder {
 
     @BindsInstance
-    Builder withODataContext(ODataContext odataContext);
+    Builder withContext(Context context);
 
     ODataProcessorComponent build();
   }
