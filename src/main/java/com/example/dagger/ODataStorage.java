@@ -6,12 +6,17 @@ public class ODataStorage {
 
     private final ODataContext context;
 
+    private final DynamoDbService dynamoDbService;
+
     @Inject
-    public ODataStorage(ODataContext context) {
+    public ODataStorage(ODataContext context, DynamoDbService dynamoDbService) {
         this.context = context;
+        this.dynamoDbService = dynamoDbService;
     }
 
     public void read() {
-        System.out.println("Reading from ODataStorage with context: " + context);
+        System.out.println("ODataStorage context:     " + System.identityHashCode(context) + " : " + context);
+
+        dynamoDbService.read();
     }
 }

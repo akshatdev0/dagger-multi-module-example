@@ -16,7 +16,7 @@ public class ODataProcessor {
     }
 
     public void readEntity() {
-        System.out.println("Reading OData entity in ODataProcessor with context: " + context);
+        System.out.println("ODataProcessor context:   " + System.identityHashCode(context) + " : " + context);
 
         final ODataContext requestContext = ImmutableODataContext.builder()
             .from(context)
